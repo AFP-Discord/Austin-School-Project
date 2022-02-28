@@ -1,8 +1,14 @@
-from encodings import utf_8
 import server
-import base64
-message = input('What would you like to say?: ')
-b64d = base64.b64encode(message.encode('ascii'))
-hexd = bytes.hex(b64d)
+import client
+print("""
+This is an encrypted message sender.
+1.) Get Message from peer
+2.) Publish message for peer
+""")
+number = input("Which option would you like to do?: ")
 
-server.webserver(hexd)
+if (number == "1") or (number == " 1") or (number == "1 "):
+    client.getmessage()
+else:
+    message = input("What would yo like to send to your peer?: ")
+    server.webserver(message)
